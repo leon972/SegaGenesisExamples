@@ -1,14 +1,11 @@
 /**
- * Hello World Example
- * Created With Genesis-Code extension for Visual Studio Code
- * Use "Genesis Code: Compile" command to compile this program.
+ * Tileset example.
+ * Load a single tile and multi tiles from an image.
+ * The tiles are displayed on screen.
  **/
 #include <genesis.h>
 #include <resources.h>
 
-/**
- * Load some tiles from images and draw them on screen
- */ 
 int main()
 {    
     //disable interrupts while working with the VDP
@@ -17,8 +14,8 @@ int main()
     VDP_drawText("Tile sets example.", 0,0);
 
     //screen size in tiles
-    const u16 scree_w_tiles=VDP_getScreenWidth()/8;
-    const u16 scree_h_tiles=VDP_getScreenHeight()/8;
+    const u16 screen_w_tiles=VDP_getScreenWidth()/8;
+    const u16 screen_h_tiles=VDP_getScreenHeight()/8;
 
     // ---- single tile ------
 
@@ -46,11 +43,11 @@ int main()
         VDP_setTileMapXY(BG_B,TILE_ATTR_FULL(PAL2,0,0,0,tilesIdx+i),10+i,12);
     }
 
-    for (u16 i=0;i<scree_w_tiles;++i)
+    for (u16 i=0;i<screen_w_tiles;++i)
     {
-        VDP_setTileMapXY(BG_B,TILE_ATTR_FULL(PAL2,0,0,0,tilesIdx+1),i,scree_h_tiles-5);
-        VDP_setTileMapXY(BG_B,TILE_ATTR_FULL(PAL2,0,0,0,tilesIdx+3),i,scree_h_tiles-4);
-        VDP_setTileMapXY(BG_B,TILE_ATTR_FULL(PAL2,0,0,0,tilesIdx),i,scree_h_tiles-3);
+        VDP_setTileMapXY(BG_B,TILE_ATTR_FULL(PAL2,0,0,0,tilesIdx+1),i,screen_h_tiles-5);
+        VDP_setTileMapXY(BG_B,TILE_ATTR_FULL(PAL2,0,0,0,tilesIdx+3),i,screen_h_tiles-4);
+        VDP_setTileMapXY(BG_B,TILE_ATTR_FULL(PAL2,0,0,0,tilesIdx),i,screen_h_tiles-3);
     }
 
     //restore interrupts

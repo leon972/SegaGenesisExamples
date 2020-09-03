@@ -58,6 +58,9 @@ int main()
     VDP_drawImageEx(BG_B, &eye, TILE_ATTR_FULL(PAL2, 0, 0, 0, 1), 2, 2, 0,DMA);  
     //VDP_drawImageEx(BG_B, &moon, TILE_ATTR_FULL(PAL1, 0, 0, 0, 30), 2, 2, 0,DMA);  
     VDP_loadBMPTileData(palme.image,30,palme.w/8,palme.h/8,palme.w/8);
+
+    
+
     VDP_fillTileMapRectInc(BG_A,TILE_ATTR_FULL(PAL1,0,FALSE,FALSE,20),20,10,2,3);
 
     VDP_fillTileMapRectInc(BG_A,TILE_ATTR_FULL(PAL1,0,FALSE,FALSE,30),0,21,palme.w/8,palme.h/8);
