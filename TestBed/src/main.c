@@ -6,6 +6,8 @@
 #include <genesis.h>
 #include <resources.h>
 
+#define BUFFSIZE 24
+
 int main()
 {
    /** VDP_loadTileSet(bgtile.tileset,1,DMA);
@@ -35,9 +37,21 @@ int main()
     VDP_fillTileMapRectInc(BG_A,TILE_ATTR_FULL(PAL1,0,FALSE,FALSE,3),23,0,4,3);
        */
 
+    const char a[BUFFSIZE];
+
+    sprintf(a,"v=%d",11);
+
+   
     SYS_disableInts();
 
-    VDP_loadTileSet(finestra.tileset,10,DMA);    
+    VDP_loadTileSet(finestra.tileset,10,DMA);
+    
+    memset(a,0,BUFFSIZE*sizeof(char));
+
+    sprintf(a,"tn=%d",eye.tileset->numTile);
+
+    VDP_drawText(a,14,4);
+
     VDP_setPalette(PAL1,palme.palette->data);
     VDP_drawImageEx(BG_B, &eye, TILE_ATTR_FULL(PAL2, 0, 0, 0, 1), 2, 2, 0,DMA);
     //VDP_loadTileData(eye.tileset->tiles,100,16,DMA);
